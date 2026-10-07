@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import "./globals.css"; // 引入全局样式
 
 export const metadata: Metadata = {
-  title: "火山引擎 - 大模型",
-  description: "火山引擎一站式大模型开发平台",
+  title: "智巨人 - AI时代的商业新物种",
+  description: "让小企业成为AI时代的小巨人",
 };
 
 export default function RootLayout({
@@ -16,11 +16,11 @@ export default function RootLayout({
     <html lang="zh-CN">
       <head>
         {/* Font Awesome CDN for icons */}
-        <link 
-          rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
           integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-          crossOrigin="anonymous" 
+          crossOrigin="anonymous"
           referrerPolicy="no-referrer" />
       </head>
       <body>{children}</body>

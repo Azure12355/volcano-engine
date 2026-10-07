@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/icon.svg" alt="volcano-engine-logo" width="200">
+  <img src="docs/logo.png" alt="volcano-engine-logo" width="200">
 </p>
 
 <h1 align="center">volcano-engine 🌋✨</h1>

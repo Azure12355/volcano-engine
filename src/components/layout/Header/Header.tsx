@@ -18,8 +18,8 @@ const navLinksData = [
 // Framer Motion 动画变体
 const headerVariants = {
   hidden: { y: -100, opacity: 0 },
-  visible: { 
-    y: 0, 
+  visible: {
+    y: 0,
     opacity: 1,
     transition: { type: 'spring', stiffness: 120, damping: 20, delay: 0.2 }
   },
@@ -27,13 +27,13 @@ const headerVariants = {
 
 const mobileNavVariants = {
   hidden: { opacity: 0, x: '100%' },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: '0%',
     transition: { type: 'tween', duration: 0.3, ease: 'easeInOut' }
   },
-  exit: { 
-    opacity: 0, 
+  exit: {
+    opacity: 0,
     x: '100%',
     transition: { type: 'tween', duration: 0.3, ease: 'easeInOut' }
   },
@@ -79,24 +79,23 @@ const Header: React.FC = () => {
       animate="visible"
     >
       <div className={styles.veHeaderContainer}>
-        <Link href="/" className={styles.veLogo}>
-          <Image
-            src="/icon.svg"
-            alt="火山引擎 Logo"
-            width={115}
-            height={28}
-            priority
-          />
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform duration-300">
+            Z
+          </div>
+          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+            智巨人
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className={`${styles.veMainNav} ${styles.desktopNav}`}>
           <ul>
             {navLinksData.map((link, index) => (
-              <motion.li 
+              <motion.li
                 key={link.text}
-                initial={{ opacity:0, y: -10 }}
-                animate={{ opacity:1, y: 0 }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.05 }}
               >
                 <Link href={link.href} className={`${styles.veNavLink} ${link.active ? styles.active : ''}`}>
@@ -111,18 +110,18 @@ const Header: React.FC = () => {
 
         {/* Header Actions (Desktop) */}
         <div className={`${styles.veHeaderActions} ${styles.desktopActions}`}>
-          <motion.div 
+          <motion.div
             className={styles.veSearchBar}
-            initial={{ opacity:0, scaleX: 0.8 }}
-            animate={{ opacity:1, scaleX: 1 }}
+            initial={{ opacity: 0, scaleX: 0.8 }}
+            animate={{ opacity: 1, scaleX: 1 }}
             transition={{ delay: 0.8 }}
           >
             <i className={`fas fa-search ${styles.veSearchIcon}`}></i>
             <input type="text" placeholder="请输入关键字" />
           </motion.div>
           <motion.div
-            initial={{ opacity:0 }}
-            animate={{ opacity:1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.9 }}
           >
             <Link href="#" className={styles.veActionLink}>文档</Link>
@@ -155,31 +154,31 @@ const Header: React.FC = () => {
             exit="exit"
           >
             <div className={styles.mobileNavHeader}>
-                <Link href="/" className={styles.veLogoMobile} onClick={toggleMobileMenu}>
-                <Image
-                    src="/icon.svg"
-                    alt="火山引擎 Logo"
-                    width={100}
-                    height={24}
-                />
-                </Link>
-                 <button
-                    className={`${styles.mobileMenuToggle} ${styles.closeBtnInPanel}`}
-                    onClick={toggleMobileMenu}
-                    aria-label="关闭菜单"
-                >
-                    <div className={`${styles.hamburgerLine} ${styles.line1Open}`}></div>
-                    <div className={`${styles.hamburgerLine} ${styles.line2Open}`}></div>
-                    <div className={`${styles.hamburgerLine} ${styles.line3Open}`}></div>
-                </button>
+              <Link href="/" className="flex items-center gap-2 group" onClick={toggleMobileMenu}>
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform duration-300">
+                  Z
+                </div>
+                <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+                  智巨人
+                </span>
+              </Link>
+              <button
+                className={`${styles.mobileMenuToggle} ${styles.closeBtnInPanel}`}
+                onClick={toggleMobileMenu}
+                aria-label="关闭菜单"
+              >
+                <div className={`${styles.hamburgerLine} ${styles.line1Open}`}></div>
+                <div className={`${styles.hamburgerLine} ${styles.line2Open}`}></div>
+                <div className={`${styles.hamburgerLine} ${styles.line3Open}`}></div>
+              </button>
             </div>
             <nav className={styles.veMobileNav}>
               <ul>
                 {navLinksData.map((link, index) => (
-                  <motion.li 
+                  <motion.li
                     key={link.text}
                     variants={mobileNavLinkVariants}
-                    // stagger aniamtion will be handled by parent
+                  // stagger aniamtion will be handled by parent
                   >
                     <Link href={link.href} className={`${styles.veNavLink} ${link.active ? styles.active : ''}`} onClick={toggleMobileMenu}>
                       {link.text}
